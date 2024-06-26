@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import model.Product;
-import model.User;
 import repository.DbConnector;
 
 @WebServlet("/getProduct")
@@ -47,7 +46,7 @@ public class GetProduct extends HttpServlet {
 			ResultSet rs = statement.executeQuery();
 			
 			while(rs.next()) {
-				productList.add(new Product(rs.getInt("id"),rs.getString("name"),rs.getString("category"),rs.getString("gender"),rs.getString("age"),rs.getDouble("price"),rs.getDouble("discount"),rs.getInt("size"),rs.getInt("colors"),rs.getInt("sellerId"),rs.getString("dp")));
+				productList.add(new Product(rs.getInt("id"),rs.getString("name"),rs.getString("category"),rs.getString("gender"),rs.getString("age"),rs.getDouble("price"),rs.getDouble("discount"),rs.getString("size"),rs.getString("colors"),rs.getInt("sellerId"),rs.getString("dp")));
 			}
 			
 			rs.close();

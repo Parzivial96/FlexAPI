@@ -1,7 +1,6 @@
 //$Id$
 package model;
 
-import java.util.List;
 
 public class Product {
 	
@@ -19,9 +18,9 @@ public class Product {
 	
 	private Double discount;
 	
-	private int size;
+	private String size;
 	
-	private int color;
+	private String color;
 	
 	private int sellerId;
 	
@@ -29,7 +28,7 @@ public class Product {
 	
 	
 
-	public Product(int id, String name, String category, String gender, String age, Double price, Double discount, int size, int color, int sellerId, String dp) {
+	public Product(int id, String name, String category, String gender, String age, Double price, Double discount, String size, String color, int sellerId, String dp) {
 		this.id = id;
 		this.name = name;
 		this.category = category;
@@ -99,26 +98,41 @@ public class Product {
 		this.discount = discount;
 	}
 
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
 
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 
-	public int getColor() {
+	public String getColor() {
 		return color;
 	}
 
-	public void setColor(int color) {
+	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public int getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
+	}
+
+	public String getDp() {
+		return dp;
+	}
+
+	public void setDp(String dp) {
+		this.dp = dp;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", gender=" + gender + ", age=" + age + ", price=" + price + ", discount=" + discount + ", size=" + size + ", color=" + color + "]";
-	}
-	
+		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", gender=" + gender + ", age=" + age + ", price=" + price + ", discount=" + discount + ", size=" + size + ", color=" + color + ", sellerId=" + sellerId + ", dp=" + dp + "]";
+	}	
 	
 }

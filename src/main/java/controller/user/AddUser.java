@@ -1,12 +1,10 @@
 package controller.user;
 
-import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;

@@ -21,7 +21,8 @@ import io.jsonwebtoken.SignatureException;
 
 @WebFilter("/*")
 public class Validate extends HttpFilter implements Filter {
-    private JwtParser jwtParser;
+    private static final long serialVersionUID = 1L;
+	private JwtParser jwtParser;
 
     
     @Override
@@ -44,20 +45,20 @@ public class Validate extends HttpFilter implements Filter {
             throws IOException, ServletException {
 
     	String requestUri = request.getRequestURI();
-    	if(requestUri.equals("/FlexAPI/validateUser")) {
+    	if(requestUri.equals("/FlexAPI/validateUser") || requestUri.equals("/FlexAPI/addUser")) {
     		chain.doFilter(request, response);
     		return;
     	}
     	
     	String token = request.getHeader("access");	
         //String token = request.getParameter("access");
-    	System.out.println("TOKEN: "+token);
+    	/*System.out.println("TOKEN: "+token);
     	
     	Enumeration<String> headers = request.getHeaderNames();
     	while(headers.hasMoreElements()) {
     		String headerName = headers.nextElement();
     		System.out.println(headerName + " : " + request.getHeader(headerName));
-    	}
+    	}*/
     	
         if (token == null) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Missing token");
@@ -75,7 +76,10 @@ public class Validate extends HttpFilter implements Filter {
         } catch (SignatureException e) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token signature");
         } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
+        	System.out.println("\n\n\n");
+        	e.printStackTrace();
+        	System.out.println("\n\n\n");
+        	response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
         }
     }
 

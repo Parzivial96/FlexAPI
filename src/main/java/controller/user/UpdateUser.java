@@ -113,7 +113,7 @@ public class UpdateUser extends HttpServlet {
 				statement.setInt(index, id);
 				
 				if(statement.executeUpdate()>0) {
-					response.setStatus(HttpServletResponse.SC_OK, "Updated Successfully");
+					response.setStatus(HttpServletResponse.SC_OK, "Updated User Successfully");
 				} else {
 					response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Can't Update User");
 				}

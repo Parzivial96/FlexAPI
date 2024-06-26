@@ -30,6 +30,11 @@ public class GetUser extends HttpServlet {
 		List<User> userList = new ArrayList<User>();
 		String query = "SELECT * FROM user";
 		String userId = (String) request.getParameter("id");
+		String idToken = (String) request.getAttribute("idToken");
+		
+		if(userId==null && idToken!=null && !idToken.isEmpty()) {
+			userId = idToken;
+		}
 		
 		try {	
 			if(userId!=null && !userId.isEmpty()) {

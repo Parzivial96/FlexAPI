@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter("/*")
 public class CORSFilter extends HttpFilter implements Filter {
        
+	private static final long serialVersionUID = 1L;
+
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
