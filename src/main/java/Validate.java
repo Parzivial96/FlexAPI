@@ -45,7 +45,7 @@ public class Validate extends HttpFilter implements Filter {
             throws IOException, ServletException {
 
     	String requestUri = request.getRequestURI();
-    	if(requestUri.equals("/FlexAPI/validateUser") || requestUri.equals("/FlexAPI/addUser")) {
+    	if(requestUri.equals("/FlexAPI/validateUser") || requestUri.equals("/FlexAPI/addUser") || requestUri.equals("/FlexAPI/forgotPassword")) {
     		chain.doFilter(request, response);
     		return;
     	}
