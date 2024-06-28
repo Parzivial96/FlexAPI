@@ -27,7 +27,6 @@ public class ForgotPassword extends HttpServlet {
 	@Override
     public void init() throws ServletException {
         super.init();
-        // Enable TLSv1.2
         System.setProperty("https.protocols", "TLSv1.2");
     }
        
